@@ -1,4 +1,3 @@
-import {InputHTMLAttributes, ButtonHTMLAttributes} from "react";
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {api} from "../services/api";
@@ -92,7 +91,6 @@ export function NewsCards({limit}: INewsPage) {
 export function NewsPage() {
     const [articles, setArticles] = useState<Article[]>([])
     const [title, setTitle] = useState('')
-    const [loading, setLoading] = useState(false)
 
 
 
@@ -111,14 +109,12 @@ export function NewsPage() {
 
     async function getArticlesByTitleAndSummary(title: string) {
         try {
-            setLoading(true)
             const { data } = await api.get('articles', {
                 params: {
                     title_contains: title,
                     summary_contains: title
                 }
             })
-            setLoading(false)
 
             setArticles(data)
         } catch(error) {
@@ -128,13 +124,11 @@ export function NewsPage() {
 
     async function getArticlesSortByTime() {
         try {
-            setLoading(true)
             const { data } = await api.get('articles', {
                 params: {
                     _sort: 'publishedAt'
                 }
             })
-            setLoading(false)
 
             setArticles(data)
         } catch(error) {
@@ -151,7 +145,7 @@ export function NewsPage() {
             <input
 
                 color='white'
-                placeholder='Pesquise por artigos'
+                placeholder='Поиск'
                 value={title}
                 onChange={e => setTitle(e.target.value)}
                 onKeyPress={e => {
