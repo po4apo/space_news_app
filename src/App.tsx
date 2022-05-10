@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {Navbar} from "./components/Navbar";
+import {NewsPage} from "./components/News";
+import {AboutPage} from "./components/About";
+import {ArticlePage} from "./components/Article";
+import {NotFoundPage} from "./components/NotFound";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const App: React.FC = () => {
+    return (
+        <BrowserRouter>
+        <>
+            <header className="clearfix">
+
+                <Navbar/>
+            </header>
+
+            <div id="main">
+                <div className="wrapper">
+                    <div className="home-block">
+
+                        <Routes>
+                            <Route path = '/' element={<Navigate replace to="/news" />}/>
+                            <Route path = '/news' element={<NewsPage />} />
+                            <Route path = '/about' element={<AboutPage />} />
+                            <Route path = '/news/:id' element={<ArticlePage />} />
+                            <Route path="*" element={<NotFoundPage />} />
+                        </Routes>
+
+                    </div>
+                </div>
+            </div>
+        </>
+        </BrowserRouter>
+    );
 }
 
 export default App;
