@@ -1,0 +1,342 @@
+/* Import other css */
+@import url('reset.css');
+@import url('social.css');
+@import url('comments.css');
+@import url('widgets.css');
+
+
+/* GENERAL ------------------------------------------------------------*/
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+.clearfix{ clear:both; }
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+
+.wrapper{
+	margin: 0 auto;
+	position: relative;
+}
+
+body{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+
+
+body p{
+	margin-bottom: 21px;
+}
+
+body a{
+	text-decoration: none;
+
+	-webkit-transition: color 0.3s ease;
+	-moz-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+}
+
+
+
+#logo{
+	display: inline-block;
+	padding-top: 40px;
+	padding-bottom: 30px;
+}
+
+#logo:hover{ opacity: 0.8;}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
+	font-weight: 400;
+}
+
+h1{ font-size: 48px;}
+
+h2{ font-size: 36px; }
+
+h3{ font-size: 24px; }
+
+h4{ font-size: 21px; }
+
+h5{ font-size: 18px; }
+
+h6{ font-size: 14px; }
+
+#main,
+footer,
+aside{ line-height: 1.5em; }
+
+
+.wrapper {
+	width: 940px;
+}
+
+.right{
+	float: right;
+}
+
+.left{
+	float: left;
+}
+
+
+.right:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+#top-widget-holder,
+footer,
+aside{
+    font-size: 12px;
+    line-height: 1.5em;
+}
+
+.page-heading{
+	text-align: left;
+	margin-bottom: 15px;
+	background: url(../img/div-line.png) repeat-x center center;
+}
+
+.page-heading span{
+	padding: 0px 20px;
+	margin-left: 20px;
+}
+
+
+
+/* COMBO NAVIGATION ------------------------------------------------------------*/
+#comboNav {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  float: left;
+}
+
+/* NAVIGATION ------------------------------------------------------------*/
+
+
+nav{
+	margin-top: 0px;
+	height: 30px;
+}
+
+
+nav a{
+	text-decoration: none;
+}
+
+#nav li{
+	margin-right: 20px;
+}
+
+#nav>li>a{
+	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+	display: block;
+	overflow: hidden;
+	padding: 0px 0px 7px 0px;
+	text-shadow: 2px 2px 0px rgba(0, 0, 0, .6);
+}
+
+
+#nav>li.current-menu-item>a,
+#nav>li.current_page_item>a{
+	border-bottom: solid #ebebe8 5px;
+}
+
+
+/* BREADCRUMBS ------------------------------------------------------------*/
+
+.breadcrumbs{
+	position: absolute;
+	overflow: hidden;
+	top: -18px;
+	left: 0px;
+	height: auto;
+	font-size: 11px;
+}
+
+.breadcrumbs a{
+	text-decoration: none;
+
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.breadcrumbs li{
+	display: inline;
+}
+
+
+.breadcrumbs li strong{
+	font-weight: bold;
+	font-size: 21px;
+}
+
+
+
+
+/* HOME ------------------------------------------------------------*/
+
+.home-block{
+	margin-bottom: 20px;
+}
+
+.home-block-heading{
+	text-align: center;
+	margin-bottom: 40px;
+	background: url(../img/div-line.png) repeat-x center center;
+}
+
+.home-block-heading span{
+	padding: 0px 20px;
+}
+
+.home-block figure{
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	position: relative;
+	overflow: hidden;
+	line-height: 1.2em;
+
+	-webkit-box-shadow: 0px 0px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0px 0px 2px rgba(0,0,0,.2);
+    -o-box-shadow: 0px 0px 2px rgba(0,0,0,.2);
+    box-shadow: 0px 0px 2px rgba(0,0,0,.2);
+}
+
+.home-block figure .thumb{
+	display: block;
+
+}
+
+
+.home-block figure img{
+	max-width: 100%;
+	opacity: .999;
+
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.home-block figure a:hover img{
+	opacity: 0.1;
+	line-height: 0em;
+}
+
+
+.home-block figure.last{
+	margin-right: 0px;
+}
+
+.home-block figcaption{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+/* modernizr fix for ie 8 and earlier */
+
+.home-block figcaption{
+	display: none;
+}
+
+.home-block figure:hover figcaption{
+	display: block;
+}
+
+.home-block figure .opener{
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	z-index: 999;
+}
+
+.opacity .home-block figure .opener{ display: none; }
+
+.home-block figcaption strong,
+.home-block figcaption span,
+.home-block figcaption em{
+	display: block;
+	margin-left: 17px;
+	margin-right: 17px;
+}
+
+.home-block figcaption strong{
+	font-weight: bold;
+	line-height: 1.3em;
+	margin-bottom: 7px;
+	margin-top: 17px;
+}
+
+.home-block figcaption span{
+	font-size: 11px;
+	margin-bottom: 7px;
+}
+
+.home-block figcaption em{
+	font-size: 11px;
+	font-weight: bold;
+	font-style: normal;
+	position: absolute;
+	bottom: 10px;
+}
+
+.home-block figcaption em{ font-weight: bold; }
+
+.one-third-thumbs figure{ width: 300px; }
+
+.one-fourth-thumbs figure{ width: 220px; height: 120px}
+
+.more-link{
+	margin-bottom: 0px;
+}
+
+/* MAIN ------------------------------------------------------------*/
+
+#main{
+	padding-top: 40px;
+	margin-bottom: 60px;
+}
+
+.thumb img{ width: 220px; height: 120px}
+
+#logo img {
+	width: 64px;
+}
+
+
+
+
+
+

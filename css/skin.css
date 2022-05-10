@@ -1,0 +1,81 @@
+/* GENERAL ------------------------------------------------------------*/
+
+body{
+	color: #888;
+}
+
+body,
+.home-block-heading span,
+.page-heading span{
+	background: #ebebe8;
+}
+
+body a{ color: #444; }
+
+body a:hover,
+#top-widget-holder a:hover,
+#nav>li>a:hover,
+.project-heading .launch:hover{
+	color: #ea4c88;
+}
+
+h1,h2,h3,h4,h5,h6{ color: #444444; }
+
+/* Selection colours (easy to forget) */
+
+::selection 	 	{background: #ea4c88; color: #fff; }
+::-moz-selection 	{background: #ea4c88; color: #fff; }
+img::selection 		{background: transparent;}
+img::-moz-selection	{background: transparent;}
+body {-webkit-tap-highlight-color: #ea4c88;}
+
+/* HEADER ------------------------------------------------------------*/
+
+header{ background: #444 bottom left repeat-x; }
+
+
+#top-widget-holder h4{
+	color: #ebebe8;
+}
+
+#top-widget-holder a{
+	color: #fff;
+}
+
+/* NAVIGATION ------------------------------------------------------------*/
+
+nav a{ color: #E2E0D7; }
+
+#nav>li.current-menu-item>a,
+#nav>li.current_page_item>a{
+	color: #E2E0D7;
+}
+
+
+
+/* BREADCRUMBS ------------------------------------------------------------*/
+
+.breadcrumbs{ color: #444; }
+
+.breadcrumbs a{ color: #888; }
+
+
+
+
+/* HOME ------------------------------------------------------------*/
+
+.home-block figcaption{
+	background: #ea4c88;
+	color: #f1f1f1;
+
+}
+
+
+
+/* RELATED PROJECTS ---------------------------------------------------*/
+
+.related-heading{ color: #444; }
+
+.related-projects .thumb{ background: #ea4c88 center center no-repeat; }
+
+
