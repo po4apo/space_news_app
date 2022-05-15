@@ -36,7 +36,7 @@ export function NewsCard({id, title, imageUrl, publishedAt, isLast}: IArticleCar
             <figcaption>
                 <strong>{title}</strong>
                 <em>{publishedAt}</em>
-                <Link to={"/news/" + id} className="opener"></Link>
+                <Link to={"/space_news_app/news/" + id} className="opener"></Link>
             </figcaption>
         </figure>
     )
@@ -59,9 +59,7 @@ export function NewsCards({limit}: INewsPage) {
         }
     }
 
-    useEffect(() => {
-        getArticles()
-    }, [])
+    getArticles()
     return (
         <>
             <div className="one-fourth-thumbs clearfix">
@@ -91,16 +89,17 @@ export function NewsCards({limit}: INewsPage) {
 export function NewsPage() {
     const [articles, setArticles] = useState<Article[]>([])
     const [title, setTitle] = useState('')
-
+    const [loading, setLoading] = useState(true)
+    var Loader = require('react-loader')
 
 
     async function getArticles() {
         try {
-
+            setLoading(false)
             const {data} = await api.get('articles')
-            console.log("🚀 ~ file: App.tsx ~ getArticles ~ data", data)
+            console.log("🚀 ~ file: App.tsx ~ getArticles1 ~ data", data)
 
-
+            setLoading(true)
             setArticles(data)
         } catch (error) {
             console.log(error)
@@ -109,7 +108,7 @@ export function NewsPage() {
 
     async function getArticlesByTitleAndSummary(title: string) {
         try {
-            const { data } = await api.get('articles', {
+            const {data} = await api.get('articles', {
                 params: {
                     title_contains: title,
                     summary_contains: title
@@ -117,21 +116,21 @@ export function NewsPage() {
             })
 
             setArticles(data)
-        } catch(error) {
+        } catch (error) {
             console.log(error)
         }
     }
 
     async function getArticlesSortByTime() {
         try {
-            const { data } = await api.get('articles', {
+            const {data} = await api.get('articles', {
                 params: {
                     _sort: 'publishedAt'
                 }
             })
 
             setArticles(data)
-        } catch(error) {
+        } catch (error) {
             console.log(error)
         }
     }
@@ -157,27 +156,33 @@ export function NewsPage() {
             <input
                 type={"button"}
                 value={"Сортировать по дате"}
-                onClick={() => {getArticlesSortByTime()}}
+                onClick={() => {
+                    getArticlesSortByTime()
+                }}
 
             />
 
             <div className="one-fourth-thumbs clearfix">
-                {articles.map((article, index) => {
-                    var isLast: boolean = false
-                    if ((index + 1) % 4 === 0) {
-                        isLast = true
+                <Loader loaded = {loading}>
+                    {
+                        articles.map((article, index) => {
+                            var isLast: boolean = false
+                            if ((index + 1) % 4 === 0) {
+                                isLast = true
+                            }
+                            return (
+                                <NewsCard
+                                    id={article.id}
+                                    title={article.title}
+                                    publishedAt={article.publishedAt}
+                                    imageUrl={article.imageUrl}
+                                    key={article.id}
+                                    isLast={isLast}
+                                />
+                            )
+                        })
                     }
-                    return (
-                        <NewsCard
-                            id={article.id}
-                            title={article.title}
-                            publishedAt={article.publishedAt}
-                            imageUrl={article.imageUrl}
-                            key={article.id}
-                            isLast={isLast}
-                        />
-                    )
-                })}
+                </Loader>
 
             </div>
 

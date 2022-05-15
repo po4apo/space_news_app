@@ -22,10 +22,10 @@ const App: React.FC = () => {
                     <div className="home-block">
 
                         <Routes>
-                            <Route path = '/' element={<Navigate replace to="/news" />}/>
-                            <Route path = '/news' element={<NewsPage />} />
-                            <Route path = '/about' element={<AboutPage />} />
-                            <Route path = '/news/:id' element={<ArticlePage />} />
+                            <Route path = '/space_news_app/' element={<Navigate replace to="/space_news_app/news" />}/>
+                            <Route path = '/space_news_app/news' element={<NewsPage />} />
+                            <Route path = '/space_news_app/about' element={<AboutPage />} />
+                            <Route path = '/space_news_app/news/:id' element={<ArticlePage />} />
                             <Route path="*" element={<NotFoundPage />} />
                         </Routes>
 

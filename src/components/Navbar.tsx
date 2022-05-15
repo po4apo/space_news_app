@@ -10,8 +10,8 @@ export const Navbar:React.FunctionComponent = () => (
 
         <nav>
             <ul id="nav" className="sf-menu">
-                <li><NavLink to="/news">Главная</NavLink></li>
-                <li><NavLink to="/about">О проекте</NavLink></li>
+                <li><NavLink to="/space_news_app/news">Главная</NavLink></li>
+                <li><NavLink to="/space_news_app/about">О проекте</NavLink></li>
             </ul>
             <div id="combo-holder"></div>
         </nav>
